@@ -43,7 +43,7 @@ const TaskProvider: FC<TaskProviderProps> = ({ children }) => {
     const ChangeStatus = async(id:string): Promise<void> => {
       const res:TaskObj | undefined = tasks.find((task)=>{ return task.id == id})
       if (res) {
-        res.status = true
+        res.status = !res.status
         await UpdateTask(id, res)
         setFlag(!flag)
       }
